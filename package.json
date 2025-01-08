@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "type": "commonjs",
+  "private": true,
   "scripts": {
+    "prod:build": "cross-env NODE_ENV=production tsc",
+    "prod:start": "cross-env NODE_ENV=production node dist/index.js",
     "start": "node dist/index.js",
     "dev": "cross-env NODE_ENV=production nodemon",
     "start:dev": "cross-env NODE_ENV=development nodemon",
@@ -48,5 +51,13 @@
     "node-persist": "^4.0.3",
     "node-telegram-bot-api": "^0.66.0",
     "telegram": "^2.26.16"
-  }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
