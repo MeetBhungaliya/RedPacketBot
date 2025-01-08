@@ -6,8 +6,6 @@
   "type": "commonjs",
   "private": true,
   "scripts": {
-    "prod:build": "cross-env NODE_ENV=production tsc",
-    "prod:start": "cross-env NODE_ENV=production node dist/index.js",
     "start": "node dist/index.js",
     "dev": "cross-env NODE_ENV=production nodemon",
     "start:dev": "cross-env NODE_ENV=development nodemon",
