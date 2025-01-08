@@ -12,11 +12,5 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ],
-  "build": {
-    "env": {
-      "TS_NODE_DEV": "true"
-    },
-    "commands": ["tsc --project tsconfig.json"]
-  }
+  ]
 }
