@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const log_1 = tslib_1.__importDefault(require("./log"));
+const messages_1 = tslib_1.__importDefault(require("./messages"));
+const node_telegram_bot_api_1 = tslib_1.__importDefault(require("node-telegram-bot-api"));
+const BOT = new node_telegram_bot_api_1.default(process.env.BOT_TOKEN, { polling: true });
+global.log = log_1.default;
+global.messages = messages_1.default;
+global.bot = BOT;
+global.webhook = { phone: null, code: null, password: null, error: null };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvZ2xvYmFscy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSx3REFBdUI7QUFDdkIsa0VBQWlDO0FBQ2pDLDBGQUErQztBQUUvQyxNQUFNLEdBQUcsR0FBRyxJQUFJLCtCQUFXLENBQUMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxTQUFTLEVBQUUsRUFBRSxPQUFPLEVBQUUsSUFBSSxFQUFFLENBQUMsQ0FBQTtBQUVyRSxNQUFNLENBQUMsR0FBRyxHQUFHLGFBQUcsQ0FBQTtBQUNoQixNQUFNLENBQUMsUUFBUSxHQUFHLGtCQUFRLENBQUE7QUFDMUIsTUFBTSxDQUFDLEdBQUcsR0FBRyxHQUFHLENBQUE7QUFDaEIsTUFBTSxDQUFDLE9BQU8sR0FBRyxFQUFFLEtBQUssRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxRQUFRLEVBQUUsSUFBSSxFQUFFLEtBQUssRUFBRSxJQUFJLEVBQUUsQ0FBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBsb2cgZnJvbSAnLi9sb2cnXG5pbXBvcnQgbWVzc2FnZXMgZnJvbSAnLi9tZXNzYWdlcydcbmltcG9ydCBUZWxlZ3JhbUJvdCBmcm9tICdub2RlLXRlbGVncmFtLWJvdC1hcGknXG5cbmNvbnN0IEJPVCA9IG5ldyBUZWxlZ3JhbUJvdChwcm9jZXNzLmVudi5CT1RfVE9LRU4sIHsgcG9sbGluZzogdHJ1ZSB9KVxuXG5nbG9iYWwubG9nID0gbG9nXG5nbG9iYWwubWVzc2FnZXMgPSBtZXNzYWdlc1xuZ2xvYmFsLmJvdCA9IEJPVFxuZ2xvYmFsLndlYmhvb2sgPSB7IHBob25lOiBudWxsLCBjb2RlOiBudWxsLCBwYXNzd29yZDogbnVsbCwgZXJyb3I6IG51bGwgfVxuIl19

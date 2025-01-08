@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteWebhook = exports.setWebhook = exports.getWebhook = void 0;
+const tslib_1 = require("tslib");
+const helper_1 = require("../lib/helper");
+const connect_1 = require("../telegram/connect");
+const getWebhook = (req, res) => {
+    return res.reply({ code: 200, message: 'Webhook data retrived successfully' }, global.webhook);
+};
+exports.getWebhook = getWebhook;
+const setWebhook = (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+    const { phone = null, code = null, password = null } = req.query;
+    global.webhook = Object.assign(Object.assign({}, global.webhook), { phone: phone, code: code, password: password });
+    console.log(global.webhook);
+    yield (0, helper_1.wait)(1000);
+    return res.reply({ code: 200, message: 'Webhook set successfully' }, global.webhook);
+});
+exports.setWebhook = setWebhook;
+const deleteWebhook = (req, res) => {
+    global.webhook = {
+        code: null,
+        error: null,
+        password: null,
+        phone: null
+    };
+    (0, connect_1.connect)();
+    return res.reply({ code: 200, message: 'Webhook data reseted successfully' }, global.webhook);
+};
+exports.deleteWebhook = deleteWebhook;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2ViaG9vay5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jb250cm9sbGVyL3dlYmhvb2sudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUNBLDBDQUFvQztBQUNwQyxpREFBNkM7QUFFN0MsTUFBTSxVQUFVLEdBQUcsQ0FBQyxHQUFZLEVBQUUsR0FBYSxFQUFFLEVBQUU7SUFDakQsT0FBTyxHQUFHLENBQUMsS0FBSyxDQUFDLEVBQUUsSUFBSSxFQUFFLEdBQUcsRUFBRSxPQUFPLEVBQUUsb0NBQW9DLEVBQUUsRUFBRSxNQUFNLENBQUMsT0FBTyxDQUFDLENBQUE7QUFDaEcsQ0FBQyxDQUFBO0FBZ0NRLGdDQUFVO0FBOUJuQixNQUFNLFVBQVUsR0FBRyxDQUFPLEdBQVksRUFBRSxHQUFhLEVBQUUsRUFBRTtJQUN2RCxNQUFNLEVBQUUsS0FBSyxHQUFHLElBQUksRUFBRSxJQUFJLEdBQUcsSUFBSSxFQUFFLFFBQVEsR0FBRyxJQUFJLEVBQUUsR0FBRyxHQUFHLENBQUMsS0FBSyxDQUFBO0lBRWhFLE1BQU0sQ0FBQyxPQUFPLG1DQUNULE1BQU0sQ0FBQyxPQUFPLEtBQ2pCLEtBQUssRUFBRSxLQUFzQixFQUM3QixJQUFJLEVBQUUsSUFBcUIsRUFDM0IsUUFBUSxFQUFFLFFBQXlCLEdBQ3BDLENBQUE7SUFFRCxPQUFPLENBQUMsR0FBRyxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsQ0FBQTtJQUUzQixNQUFNLElBQUEsYUFBSSxFQUFDLElBQUksQ0FBQyxDQUFBO0lBRWhCLE9BQU8sR0FBRyxDQUFDLEtBQUssQ0FBQyxFQUFFLElBQUksRUFBRSxHQUFHLEVBQUUsT0FBTyxFQUFFLDBCQUEwQixFQUFFLEVBQUUsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFBO0FBQ3RGLENBQUMsQ0FBQSxDQUFBO0FBZW9CLGdDQUFVO0FBYi9CLE1BQU0sYUFBYSxHQUFHLENBQUMsR0FBWSxFQUFFLEdBQWEsRUFBRSxFQUFFO0lBQ3BELE1BQU0sQ0FBQyxPQUFPLEdBQUc7UUFDZixJQUFJLEVBQUUsSUFBSTtRQUNWLEtBQUssRUFBRSxJQUFJO1FBQ1gsUUFBUSxFQUFFLElBQUk7UUFDZCxLQUFLLEVBQUUsSUFBSTtLQUNaLENBQUE7SUFFRCxJQUFBLGlCQUFPLEdBQUUsQ0FBQTtJQUVULE9BQU8sR0FBRyxDQUFDLEtBQUssQ0FBQyxFQUFFLElBQUksRUFBRSxHQUFHLEVBQUUsT0FBTyxFQUFFLG1DQUFtQyxFQUFFLEVBQUUsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFBO0FBQy9GLENBQUMsQ0FBQTtBQUVnQyxzQ0FBYSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJlcXVlc3QsIFJlc3BvbnNlIH0gZnJvbSAnZXhwcmVzcydcbmltcG9ydCB7IHdhaXQgfSBmcm9tICcuLi9saWIvaGVscGVyJ1xuaW1wb3J0IHsgY29ubmVjdCB9IGZyb20gJy4uL3RlbGVncmFtL2Nvbm5lY3QnXG5cbmNvbnN0IGdldFdlYmhvb2sgPSAocmVxOiBSZXF1ZXN0LCByZXM6IFJlc3BvbnNlKSA9PiB7XG4gIHJldHVybiByZXMucmVwbHkoeyBjb2RlOiAyMDAsIG1lc3NhZ2U6ICdXZWJob29rIGRhdGEgcmV0cml2ZWQgc3VjY2Vzc2Z1bGx5JyB9LCBnbG9iYWwud2ViaG9vaylcbn1cblxuY29uc3Qgc2V0V2ViaG9vayA9IGFzeW5jIChyZXE6IFJlcXVlc3QsIHJlczogUmVzcG9uc2UpID0+IHtcbiAgY29uc3QgeyBwaG9uZSA9IG51bGwsIGNvZGUgPSBudWxsLCBwYXNzd29yZCA9IG51bGwgfSA9IHJlcS5xdWVyeVxuXG4gIGdsb2JhbC53ZWJob29rID0ge1xuICAgIC4uLmdsb2JhbC53ZWJob29rLFxuICAgIHBob25lOiBwaG9uZSBhcyBzdHJpbmcgfCBudWxsLFxuICAgIGNvZGU6IGNvZGUgYXMgc3RyaW5nIHwgbnVsbCxcbiAgICBwYXNzd29yZDogcGFzc3dvcmQgYXMgc3RyaW5nIHwgbnVsbFxuICB9XG5cbiAgY29uc29sZS5sb2coZ2xvYmFsLndlYmhvb2spXG5cbiAgYXdhaXQgd2FpdCgxMDAwKVxuXG4gIHJldHVybiByZXMucmVwbHkoeyBjb2RlOiAyMDAsIG1lc3NhZ2U6ICdXZWJob29rIHNldCBzdWNjZXNzZnVsbHknIH0sIGdsb2JhbC53ZWJob29rKVxufVxuXG5jb25zdCBkZWxldGVXZWJob29rID0gKHJlcTogUmVxdWVzdCwgcmVzOiBSZXNwb25zZSkgPT4ge1xuICBnbG9iYWwud2ViaG9vayA9IHtcbiAgICBjb2RlOiBudWxsLFxuICAgIGVycm9yOiBudWxsLFxuICAgIHBhc3N3b3JkOiBudWxsLFxuICAgIHBob25lOiBudWxsXG4gIH1cblxuICBjb25uZWN0KClcblxuICByZXR1cm4gcmVzLnJlcGx5KHsgY29kZTogMjAwLCBtZXNzYWdlOiAnV2ViaG9vayBkYXRhIHJlc2V0ZWQgc3VjY2Vzc2Z1bGx5JyB9LCBnbG9iYWwud2ViaG9vaylcbn1cblxuZXhwb3J0IHsgZ2V0V2ViaG9vaywgc2V0V2ViaG9vaywgZGVsZXRlV2ViaG9vayB9XG4iXX0=

@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const dotenv_1 = tslib_1.__importDefault(require("dotenv"));
+const path_1 = tslib_1.__importDefault(require("path"));
+const envFile = process.env.NODE_ENV === 'development' ? '.env.development' : '.env';
+if (dotenv_1.default.config({ path: path_1.default.resolve(process.cwd(), envFile) }).error) {
+    console.error('No environment variable found');
+    process.exit(1);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW52Y29uZmlnLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL2xpYi9lbnZjb25maWcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsNERBQTJCO0FBQzNCLHdEQUF1QjtBQUV2QixNQUFNLE9BQU8sR0FBRyxPQUFPLENBQUMsR0FBRyxDQUFDLFFBQVEsS0FBSyxhQUFhLENBQUMsQ0FBQyxDQUFDLGtCQUFrQixDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUE7QUFFcEYsSUFBSSxnQkFBTSxDQUFDLE1BQU0sQ0FBQyxFQUFFLElBQUksRUFBRSxjQUFJLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxHQUFHLEVBQUUsRUFBRSxPQUFPLENBQUMsRUFBRSxDQUFDLENBQUMsS0FBSyxFQUFFLENBQUM7SUFDeEUsT0FBTyxDQUFDLEtBQUssQ0FBQywrQkFBK0IsQ0FBQyxDQUFBO0lBQzlDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUE7QUFDakIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBkb3RlbnYgZnJvbSAnZG90ZW52J1xuaW1wb3J0IHBhdGggZnJvbSAncGF0aCdcblxuY29uc3QgZW52RmlsZSA9IHByb2Nlc3MuZW52Lk5PREVfRU5WID09PSAnZGV2ZWxvcG1lbnQnID8gJy5lbnYuZGV2ZWxvcG1lbnQnIDogJy5lbnYnXG5cbmlmIChkb3RlbnYuY29uZmlnKHsgcGF0aDogcGF0aC5yZXNvbHZlKHByb2Nlc3MuY3dkKCksIGVudkZpbGUpIH0pLmVycm9yKSB7XG4gIGNvbnNvbGUuZXJyb3IoJ05vIGVudmlyb25tZW50IHZhcmlhYmxlIGZvdW5kJylcbiAgcHJvY2Vzcy5leGl0KDEpXG59XG4iXX0=
