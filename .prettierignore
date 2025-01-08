@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+.env.sample
+.eslintrc
+.prettierrc
+README.md
+tsconfig.json
+.vscode
+package.json
+package-lock.json
+.husky
+eslint.config.mjs

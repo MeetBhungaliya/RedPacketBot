@@ -1,0 +1,4 @@
+sed -i '/^#!\/usr\/bin\/env sh/d' .husky/pre-commit
+sed -i '/^\..*\/husky\.sh/d' .husky/pre-commit
+
+npx lint-staged
