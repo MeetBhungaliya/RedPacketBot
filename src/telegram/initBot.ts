@@ -49,8 +49,8 @@ const sendCode = async (grabCode: string): Promise<void> => {
     const users: string[] | undefined = await storage.get('users')
     const codes: string[] | undefined = await storage.get('codes')
 
-    if (!Array.isArray(users) || !Array.isArray(codes)) {
-      global.log.error('Invalid users or codes data')
+    if (!Array.isArray(users)) {
+      global.log.error('No users')
       return
     }
 
