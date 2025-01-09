@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const express_1 = tslib_1.__importDefault(require("express"));
-const webhook_1 = tslib_1.__importDefault(require("./webhook"));
-const router = express_1.default.Router();
-router.use('/api/v1/', webhook_1.default);
-exports.default = router;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvcm91dGVzL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDhEQUE2QjtBQUM3QixnRUFBb0M7QUFFcEMsTUFBTSxNQUFNLEdBQUcsaUJBQU8sQ0FBQyxNQUFNLEVBQUUsQ0FBQTtBQUUvQixNQUFNLENBQUMsR0FBRyxDQUFDLFVBQVUsRUFBRSxpQkFBWSxDQUFDLENBQUE7QUFFcEMsa0JBQWUsTUFBTSxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSAnZXhwcmVzcydcbmltcG9ydCB3ZWJob29rUm91dGUgZnJvbSAnLi93ZWJob29rJ1xuXG5jb25zdCByb3V0ZXIgPSBleHByZXNzLlJvdXRlcigpXG5cbnJvdXRlci51c2UoJy9hcGkvdjEvJywgd2ViaG9va1JvdXRlKVxuXG5leHBvcnQgZGVmYXVsdCByb3V0ZXJcbiJdfQ==

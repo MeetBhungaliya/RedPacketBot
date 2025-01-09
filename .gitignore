@@ -90,6 +90,10 @@ typings/
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
+# Nuxt.js build / generate output
+.nuxt
+dist
+
 # Serverless directories
 .serverless/
 
