@@ -72,7 +72,7 @@ app.get('/health', async (req, res) => {
   }
 
   res.reply(
-    { code: 200, message: 'Service is up and running!' },
+    { code: 200, message: 'service is up and running!' },
     {
       timestamp: currentTimestamp,
       uptime: uptime,

@@ -3,7 +3,7 @@ import { wait } from '../lib/helper'
 import { connect } from '../telegram/connect'
 
 const getWebhook = (req: Request, res: Response) => {
-  return res.reply({ code: 200, message: 'Webhook data retrived successfully' }, global.webhook)
+  return res.reply({ code: 200, message: 'webhook data retrived successfully' }, global.webhook)
 }
 
 const setWebhook = async (req: Request, res: Response) => {
@@ -20,7 +20,7 @@ const setWebhook = async (req: Request, res: Response) => {
 
   await wait(1000)
 
-  return res.reply({ code: 200, message: 'Webhook set successfully' }, global.webhook)
+  return res.reply({ code: 200, message: 'webhook set successfully' }, global.webhook)
 }
 
 const deleteWebhook = (req: Request, res: Response) => {
@@ -33,7 +33,7 @@ const deleteWebhook = (req: Request, res: Response) => {
 
   connect()
 
-  return res.reply({ code: 200, message: 'Webhook data reseted successfully' }, global.webhook)
+  return res.reply({ code: 200, message: 'webhook data reseted successfully' }, global.webhook)
 }
 
 export { getWebhook, setWebhook, deleteWebhook }

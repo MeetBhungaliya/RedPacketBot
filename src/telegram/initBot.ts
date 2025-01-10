@@ -3,9 +3,7 @@ import storage from 'node-persist'
 const initBot = async () => {
   const BOT = global.bot
 
-  if (!BOT) {
-    return global.log.error('Bot not initialized')
-  }
+  if (!BOT) return global.log.error('Bot not initialized')
 
   global.log.info('Bot initialised successfully')
 
@@ -15,12 +13,11 @@ const initBot = async () => {
   BOT.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id
 
-    if (usersSet.has(chatId)) {
-      BOT.sendMessage(chatId, 'You already there 👋')
-    } else {
+    if (usersSet.has(chatId)) return BOT.sendMessage(chatId, 'You already there 👋')
+    else {
       usersSet.add(chatId)
       await storage.set('users', Array.from(usersSet))
-      BOT.sendMessage(chatId, 'You are in 😍')
+      return BOT.sendMessage(chatId, 'You are in 😍')
     }
   })
 
@@ -28,38 +25,28 @@ const initBot = async () => {
     const chatId = msg.chat.id
 
     if (usersSet.has(chatId)) {
-      BOT.sendMessage(chatId, 'You already there 👋')
-    } else {
       usersSet.delete(chatId)
       await storage.set('users', Array.from(usersSet))
-      BOT.sendMessage(chatId, 'You are out 🥹')
-    }
+      return BOT.sendMessage(chatId, 'You are out 🥹')
+    } else return BOT.sendMessage(chatId, 'You already out 🥲')
   })
 }
 
 const sendCode = async (grabCode: string): Promise<void> => {
   const BOT = global.bot
 
-  if (!BOT) {
-    global.log.error('Bot not initialized')
-    return
-  }
+  if (!BOT) return global.log.error('Bot not initialized')
 
   try {
     const users: string[] | undefined = await storage.get('users')
     const codes: string[] | undefined = await storage.get('codes')
 
-    if (!Array.isArray(users)) {
-      global.log.error('No users')
-      return
-    }
+    if (!Array.isArray(users)) return global.log.error('No users')
 
     const usersSet = new Set(users)
     const codesSet = new Set(codes)
 
-    if (codesSet.has(grabCode)) {
-      return
-    }
+    if (codesSet.has(grabCode)) return
 
     for (const chatId of usersSet) {
       await BOT.sendMessage(chatId, grabCode)

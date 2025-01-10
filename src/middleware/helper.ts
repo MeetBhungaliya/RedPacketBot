@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 
 const notFound = (_: Request, res: Response) => {
-  return res.reply({ code: 404, message: 'Route not found' })
+  return res.reply({ code: 404, message: 'route not found' })
 }
 
 const errorLogger = (error: Error, req: Request, res: Response, next: NextFunction) => {
