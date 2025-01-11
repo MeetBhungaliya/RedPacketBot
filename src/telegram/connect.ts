@@ -8,12 +8,7 @@ import { sendCode } from '../telegram/initBot'
 const connect = async () => {
   const stringSession = new StringSession('')
   const client = new TelegramClient(stringSession, +process.env.API_ID, process.env.API_HASH, {
-    reconnectRetries: 1,
-    proxy: {
-      ip: '149.28.155.161',
-      port: 1080,
-      socksType: 5
-    }
+    reconnectRetries: 1
   })
 
   try {
