@@ -1,14 +1,19 @@
-import queue from '../lib/queue'
 import { TelegramClient } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
 import { StringSession } from 'telegram/sessions'
 import { matchCodeRegex, pollForWebhookValue } from '../lib/helper'
+import queue from '../lib/queue'
 import { sendCode } from '../telegram/initBot'
 
 const connect = async () => {
   const stringSession = new StringSession('')
   const client = new TelegramClient(stringSession, +process.env.API_ID, process.env.API_HASH, {
-    reconnectRetries: 5
+    reconnectRetries: 1,
+    proxy: {
+      ip: '149.28.155.161',
+      port: 1080,
+      socksType: 5
+    }
   })
 
   try {
