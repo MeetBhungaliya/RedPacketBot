@@ -16,7 +16,9 @@ import { createServer } from 'http'
 import { CORS_OPTION } from './constant'
 import { errorHandler, errorLogger, notFound } from './middleware/helper'
 import { connect } from './telegram/connect'
-import { initBot } from './telegram/initBot'
+import { serverAdapter } from './redis/queues'
+import { BASE_PATH_FOR_BULL_BOARD } from './constant'
+// import { initBot } from './telegram/initBot'
 
 import './globals'
 
@@ -27,7 +29,7 @@ const httpServer = createServer(app)
 httpServer.listen(process.env.PORT, async () => {
   await initStorage()
   connect()
-  initBot()
+  // initBot()
   global.log.info(`Spinning on ${process.env.PORT}`)
 })
 
@@ -103,6 +105,8 @@ app.get('/health', async (req, res) => {
 })
 
 app.use(routes)
+
+app.use(BASE_PATH_FOR_BULL_BOARD, serverAdapter.getRouter())
 
 app.use('*', notFound)
 

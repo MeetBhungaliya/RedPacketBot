@@ -2,8 +2,9 @@ import { TelegramClient } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
 import { StringSession } from 'telegram/sessions'
 import { matchCodeRegex, pollForWebhookValue } from '../lib/helper'
-import queue from '../lib/queue'
-import { sendCode } from '../telegram/initBot'
+import { code_queue } from '../redis/queues/code'
+// import { sendCode } from '../telegram/initBot'
+// import queue from '../lib/queue'
 
 const connect = async () => {
   const stringSession = new StringSession('')
@@ -41,16 +42,18 @@ async function messageHandler(event: NewMessageEvent) {
 
   if (!grabCode) return
 
-  queue.enqueue(grabCode)
+  code_queue.add('code', grabCode)
+
+  // queue.enqueue(grabCode)
 }
 
-queue.subscribe(async (grabCode) => {
-  try {
-    await sendCode(grabCode)
-    queue.dequeue()
-  } catch (error) {
-    console.log(error)
-  }
-})
+// queue.subscribe(async (grabCode) => {
+//   try {
+//     await sendCode(grabCode)
+//     queue.dequeue()
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
 
 export { connect }
