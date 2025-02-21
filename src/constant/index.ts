@@ -6,3 +6,5 @@ export const CORS_OPTION = {
 }
 
 export const BASE_PATH_FOR_BULL_BOARD = '/queue_dashboard/ui'
+
+export const KEEP_ALIVE_INTERVAL_TIME = 1000 * 60

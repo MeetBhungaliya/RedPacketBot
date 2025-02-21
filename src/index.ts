@@ -21,6 +21,7 @@ import { BASE_PATH_FOR_BULL_BOARD } from './constant'
 // import { initBot } from './telegram/initBot'
 
 import './globals'
+import './keepAlive'
 
 const app = express()
 
