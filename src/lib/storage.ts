@@ -4,7 +4,7 @@ import path from 'path'
 const initStorage = async () => {
   try {
     await storage.init({
-      dir: path.join(process.cwd(), 'src', 'cache'),
+      dir: path.join(process.cwd(), 'public', 'cache'),
       stringify: JSON.stringify,
       parse: JSON.parse,
       logging: false,

@@ -2,8 +2,8 @@ import { TelegramClient } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
 import { StringSession } from 'telegram/sessions'
 import { matchCodeRegex, pollForWebhookValue } from '../lib/helper'
-import { code_queue } from '../redis/queues/code'
 import queue from '../lib/queue'
+import { addJob } from '../redis/queues/code'
 // import { sendCode } from '../telegram/initBot'
 
 const connect = async () => {
@@ -48,7 +48,7 @@ async function messageHandler(event: NewMessageEvent) {
 queue.subscribe(async (grabCode) => {
   try {
     // await sendCode(grabCode)
-    code_queue.add('code', grabCode)
+    addJob(grabCode)
     queue.dequeue()
   } catch (error) {
     console.log(error)

@@ -1,23 +1,22 @@
 import './lib/envconfig'
 
+import axios from 'axios'
 import compression from 'compression'
 import cors from 'cors'
 import express from 'express'
-import morgan from 'morgan'
-import path from 'path'
-import os from 'os'
-import process from 'process'
-import axios from 'axios'
+import { createServer } from 'http'
 import moment from 'moment-timezone'
+import morgan from 'morgan'
+import os from 'os'
+import path from 'path'
+import process from 'process'
+import { BASE_PATH_FOR_BULL_BOARD, CORS_OPTION } from './constant'
 import routeConfig from './lib/routeConfig'
 import initStorage from './lib/storage'
-import routes from './routes'
-import { createServer } from 'http'
-import { CORS_OPTION } from './constant'
 import { errorHandler, errorLogger, notFound } from './middleware/helper'
-import { connect } from './telegram/connect'
 import { serverAdapter } from './redis/queues'
-import { BASE_PATH_FOR_BULL_BOARD } from './constant'
+import routes from './routes'
+import { connect } from './telegram/connect'
 // import { initBot } from './telegram/initBot'
 
 import './globals'
@@ -45,7 +44,7 @@ app.use(
   })
 )
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(process.cwd(), 'public')))
 
 app.get('/health', async (req, res) => {
   const memoryUsage = process.memoryUsage()
