@@ -104,6 +104,10 @@ app.get('/health', async (req, res) => {
   )
 })
 
+app.get('/api/status', async (req, res) => {
+  return res.reply({ code: 200, message: 'OK' }, null)
+})
+
 app.use(routes)
 
 app.use(BASE_PATH_FOR_BULL_BOARD, serverAdapter.getRouter())

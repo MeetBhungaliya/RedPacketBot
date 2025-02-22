@@ -15,7 +15,8 @@ const addJob = async (grabCode: string) => {
     if (codesSet.has(grabCode)) return
 
     codesSet.add(grabCode)
-    code_queue.add('code', grabCode)
+
+    await code_queue.add('code', grabCode)
 
     await storage.set('codes', Array.from(codesSet))
   } catch (error) {

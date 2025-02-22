@@ -3,7 +3,19 @@ import { KEEP_ALIVE_INTERVAL_TIME } from './constant'
 
 const keepAlive = async () => {
   try {
-    await axios.get('https://redpacketbot.onrender.com/webhook')
+    const allRes = await Promise.all([
+      axios.get('https://redpacketbot.onrender.com/api/status'),
+      axios.get('https://redpacket-claimer.onrender.com/api/status')
+    ])
+
+    const check = allRes.every((res) => res.data.messages === 'OK')
+
+    if (check) {
+      global.log.blue('I AM ALIVE')
+    } else {
+      global.log.red('SOMEONE IS DEAD')
+    }
+
     global.log.blue('I AM ALIVE')
   } catch (error) {
     global.log.red('I AM DEAD', error)

@@ -48,7 +48,7 @@ async function messageHandler(event: NewMessageEvent) {
 queue.subscribe(async (grabCode) => {
   try {
     // await sendCode(grabCode)
-    addJob(grabCode)
+    await addJob(grabCode)
     queue.dequeue()
   } catch (error) {
     console.log(error)
