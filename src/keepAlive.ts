@@ -4,7 +4,7 @@ import { KEEP_ALIVE_INTERVAL_TIME } from './constant'
 const keepAlive = async () => {
   try {
     const allRes = await Promise.all([
-      axios.get('https://redpacketbot-eew4.onrender.com/api/status'),
+      axios.get('https://redpacketbot-uy7y.onrender.com/api/status'),
       axios.get('https://redpacket-claimer-fxc6.onrender.com/api/status')
     ])
 
