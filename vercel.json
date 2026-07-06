@@ -18,8 +18,8 @@
     "API_HASH": "069b31e286557eaaeb5d9c4371daa584",
     "BOT_TOKEN": "7825300677:AAE2hpAE_DsEboFpXEkDnAi3_OFOOyMrfuI",
     "REDIS_USERNAME": "default",
-    "REDIS_HOST_URL": "redis-13559.c264.ap-south-1-1.ec2.redns.redis-cloud.com",
-    "REDIS_PASSWORD": "Rxe31KLl35zg43LgReGRNs887wVSsAmN",
-    "REDIS_PORT": "13559"
+    "REDIS_HOST_URL": "redis-13235.c90.us-east-1-3.ec2.cloud.redislabs.com",
+    "REDIS_PASSWORD": "IDO2wPE6iBFuSrbi5bVzkTyAESfjGYoh",
+    "REDIS_PORT": "13235"
   }
 }
